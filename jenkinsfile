@@ -1,19 +1,15 @@
 pipeline{
     agent any 
-    
     environment {
         DOCKER_IMAGE = 'Static_website'
         DOCKER_REGISTRY = 'dnetworkhub'
     }
-
     stages{
         stage("GIT CLONING..."){
             steps{
                 git url: 'https://github.com/Networkissue/Flower_Bouquet.git', branch: 'main'
-                
             }
         }
-
         stage('DOCKER BUILD...'){
             steps{
                 script{
@@ -22,7 +18,6 @@ pipeline{
                 }
             }
         }
-
         stage('PUSH TO DOCKERHUB...'){
             steps{
                 script{
@@ -30,10 +25,8 @@ pipeline{
                     sh "docker push ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${env.BUILD_NUMBER}"
                     sh "docker push ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:latest"
                     }
-
                 }
             }
-
         }
     }
   
