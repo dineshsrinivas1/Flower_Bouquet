@@ -3,13 +3,13 @@ pipeline{
     
     environment {
         DOCKER_IMAGE = 'Static_website'
-        DOCKER_REGISTRY = 'dnetworkhub'
+        DOCKER_REGISTRY = 'dineshsrinivas1'
     }
 
     stages{
         stage("GIT CLONING..."){
             steps{
-                git url: 'https://github.com/Networkissue/Flower_Bouquet.git', branch: 'main'
+                git url: 'https://github.com/dineshsrinivas1/Flower_Bouquet.git', branch: 'main'
                 
             }
         }
